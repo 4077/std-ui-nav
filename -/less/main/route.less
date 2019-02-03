@@ -1,0 +1,117 @@
+// head {
+@__nodeId__: ~"std_ui_nav__main_route";
+// }
+
+.@{__nodeId__} {
+    min-width: 250px;
+
+    .__table {
+        display: table;
+    }
+
+    .__row {
+        display: table-row;
+    }
+
+    .__cell {
+        display: table-cell;
+    }
+
+    .table {
+        .__table;
+        width: 100%;
+        border-spacing: 1px;
+
+        .row {
+            .__row;
+
+            .cell {
+                .__cell;
+                vertical-align: middle;
+                background-color: #F4F4F4;
+
+                &.label {
+                    padding: 10px;
+                    background-color: #EDEDED;
+                    width: 1px;
+                    white-space: nowrap;
+                }
+
+                &.value {
+                    cursor: pointer;
+                    position: relative;
+                    min-width: 400px;
+
+                    input {
+                        box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3) inset;
+                    }
+
+                    .name_txt {
+                        padding: 10px;
+                        font-weight: bold;
+                    }
+
+                    .route_txt {
+                        padding: 10px;
+                    }
+
+                    .enabled_switcher, .clickable_switcher {
+                        float: left;
+                        margin: 5px 10px;
+                        border-radius: 5px;
+                        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+
+                        .button {
+                            cursor: pointer;
+                            float: left;
+                            padding: 5px 10px;
+                            background-color: #fff;
+
+                            &.first {
+                                border-radius: 3px 0 0 3px;
+                            }
+
+                            &.last {
+                                border-radius: 0 3px 3px 0;
+                            }
+
+                            &.yes {
+
+                                &.selected {
+                                    background-color: #3d9f5b;
+                                    color: #ffffff;
+                                }
+
+                                &.hover {
+                                    background-color: #d4d4d4;
+
+                                    &.selected {
+                                        background-color: #49be6d;
+                                        color: #ffffff;
+                                    }
+                                }
+                            }
+
+                            &.no {
+
+                                &.selected {
+                                    background-color: #ec3333;
+                                    color: #ffffff;
+                                }
+
+                                &.hover {
+                                    background-color: #d4d4d4;
+
+                                    &.selected {
+                                        background-color: #ec5656;
+                                        color: #ffffff;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

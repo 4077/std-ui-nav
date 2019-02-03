@@ -1,0 +1,71 @@
+// head {
+@__nodeId__: ~"std_ui_nav_tree__main";
+// }
+
+.@{__nodeId__}[instance='@{__instance__}'] {
+
+    ul {
+        list-style: none;
+        position: relative;
+        margin: 0;
+        padding: 0;
+
+        li {
+            margin: 0;
+        }
+
+        .node {
+            cursor: default;
+
+            &.clickable {
+                cursor: pointer;
+            }
+        }
+
+        //&.first_level {
+        //
+        //    > li {
+        //        float: left;
+        //
+        //        &:hover {
+        //
+        //            > ul {
+        //                display: block;
+        //            }
+        //        }
+        //    }
+        //}
+        //
+        //&.not_first_level {
+        //    display: none;
+        //    position: absolute;
+        //
+        //    > li {
+        //        position: relative;
+        //
+        //        > ul {
+        //            position: absolute;
+        //            left: 100%;
+        //            top: 0;
+        //        }
+        //
+        //        &:hover {
+        //
+        //            > ul {
+        //                display: block;
+        //            }
+        //        }
+        //    }
+        //
+        //    .node {
+        //        display: block;
+        //        cursor: default;
+        //        padding-left: 30px !important;
+        //
+        //        &.clickable {
+        //            cursor: pointer;
+        //        }
+        //    }
+        //}
+    }
+}

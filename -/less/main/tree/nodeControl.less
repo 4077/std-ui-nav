@@ -1,0 +1,131 @@
+// head {
+@import "../../../../../js-jquery/ui/-/less/icons.less";
+
+@__nodeId__: ~"std_ui_nav__main_tree_nodeControl";
+// }
+
+.@{__nodeId__} {
+    @buttonSize: 28px;
+
+    > .content {
+        cursor: pointer;
+        position: relative;
+        min-height: @buttonSize;
+        //background-color: #D5D5D5;
+
+        .name {
+            padding: 7px 10px;
+            color: #D19E98;
+
+            &.clickable {
+                color: #D4D4D4;
+            }
+
+            &.enabled {
+                color: #FF0000;
+
+                &.clickable {
+                    color: #000000;
+                }
+            }
+        }
+
+        .buttons {
+            display: none;
+            position: absolute;
+            right: 0;
+
+            .button {
+                cursor: pointer;
+                float: left;
+                width: @buttonSize;
+                height: @buttonSize;
+                background-color: #F3F3F3;
+
+                .icon {
+                    float: left;
+                    margin: (@buttonSize - 16px) / 2;
+                    width: 16px;
+                    height: 16px;
+                    background: url("../../images/icons_454545.png") 16px 16px;
+                }
+
+                &.hover {
+                    background-color: #E0E0E0;
+                }
+
+                &.toggle_enabled {
+
+                    .icon {
+                        .ui-icon-radio-off;
+                    }
+
+                    &.enabled {
+
+                        .icon {
+                            .ui-icon-bullet;
+                        }
+                    }
+                }
+
+                &.create {
+
+                    .icon {
+                        .ui-icon-plus;
+                    }
+                }
+
+                &.exchange {
+
+                    .icon {
+                        .ui-icon-transfer-e-w;
+                    }
+                }
+
+                &.duplicate {
+
+                    .icon {
+                        .ui-icon-copy;
+                    }
+                }
+
+                &.delete {
+
+                    .icon {
+                        .ui-icon-trash;
+                    }
+                }
+            }
+        }
+
+        &.root {
+            cursor: default;
+            background-color: #404040;
+            color: #FFFFFF;
+
+            .button {
+                background-color: #404040;
+
+                .icon {
+                    background: url("../../images/icons_ffffff.png");
+                }
+
+                &.hover {
+                    background-color: #5D5D5D;
+                }
+            }
+        }
+
+        &.hover {
+            background-color: #F3F3F3;
+
+            &.root {
+                background-color: #404040;
+            }
+
+            .buttons {
+                display: block;
+            }
+        }
+    }
+}
