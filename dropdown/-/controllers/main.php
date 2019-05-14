@@ -84,23 +84,18 @@ class Main extends \Controller
         return $v;
     }
 
-    /**
-     * @var \ewma\Data\Tree
-     */
-    private $tree;
-
     private function treeView()
     {
-        $this->tree = \ewma\Data\Tree::get($this->nav->routes()->orderBy('position'));
+        $tree = \ewma\Data\Tree::get($this->nav->routes()->orderBy('position'));
 
-        return $this->treeViewRecursion($this->rootRoute->id);
+        return $this->treeViewRecursion($tree, $this->rootRoute->id);
     }
 
     private $level = 0;
 
-    private function treeViewRecursion($id)
+    private function treeViewRecursion(\ewma\Data\Tree $tree, $id)
     {
-        $subnodes = $this->tree->getSubnodes($id);
+        $subnodes = $tree->getSubnodes($id);
 
         if ($subnodes) {
             $v = $this->v('>ul');
@@ -136,13 +131,27 @@ class Main extends \Controller
                         }
 
                         if ($allowed) {
+                            $tmp = $tree;
+
+                            if (preg_match('/:(?<id>\d+)/', $subnode->route, $match)) {
+                                $nestedId = $match['id'];
+
+                                if ($otherNavRoute = \std\ui\nav\models\Route::find($match['id'])) {
+                                    $tree = \ewma\Data\Tree::get($otherNavRoute->nav->routes()->orderBy('position'));
+                                }
+                            } else {
+                                $nestedId = $subnode->id;
+                            }
+
                             $v->assign('ul/li', [
                                 'CONTROL' => $this->getControl($subnode),
                                 'LEVEL'   => $this->level,
-                                'UL'      => $this->treeViewRecursion($subnode->id)
+                                'UL'      => $this->treeViewRecursion($tree, $nestedId)
                             ]);
 
                             $this->hasVisibleItems = true;
+
+                            $tree = $tmp;
                         }
                     }
                 }

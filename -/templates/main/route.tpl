@@ -3,6 +3,11 @@
     <!-- table -->
     <div class="table">
         <div class="row">
+            <div class="cell label">id</div>
+            <div class="cell value padding">{ID}</div>
+        </div>
+
+        <div class="row">
             <div class="cell label">Название</div>
             <div class="cell value">{NAME_TXT}</div>
         </div>

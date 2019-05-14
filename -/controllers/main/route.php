@@ -22,6 +22,7 @@ class Route extends \Controller
             $routeXPack = xpack_model($route);
 
             $v->assign('table', [
+                'ID'                        => $route->id,
                 'NAME_TXT'                  => $this->c('\std\ui txt:view', [
                     'path'              => '>xhr:updateName|',
                     'data'              => [

@@ -11,11 +11,11 @@
         cursor: pointer;
         position: relative;
         min-height: @buttonSize;
-        //background-color: #D5D5D5;
 
         .name {
             padding: 7px 10px;
-            color: #D19E98;
+
+            color: #d4a5a5;
 
             &.clickable {
                 color: #D4D4D4;
@@ -101,7 +101,11 @@
         &.root {
             cursor: default;
             background-color: #404040;
-            color: #FFFFFF;
+
+            .name {
+                font-weight: bold;
+                color: #f5f5f5;
+            }
 
             .button {
                 background-color: #404040;

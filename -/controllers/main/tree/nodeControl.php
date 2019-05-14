@@ -25,10 +25,10 @@ class NodeControl extends \Controller
         $isRootRoute = $this->data['root_route_id'] == $this->route->id;
 
         $route = $this->route;
-
         $routeXPack = xpack_model($route);
 
-        $name = $isRootRoute ? $route->nav->alias : ($route->name ? $route->name : '...');
+        $nav = $route->nav;
+        $name = $isRootRoute ? $nav->instance . ' :' . $route->id : ($route->name ? $route->name : '...');
 
         $v->assign([
                        'ROOT_CLASS'            => $isRootRoute ? 'root' : '',
